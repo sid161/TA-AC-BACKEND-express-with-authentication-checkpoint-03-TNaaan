@@ -1,0 +1,19 @@
+{
+  "name": "altcampus-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "jest --passWithNoTests"
+  },
+  "author": "AltCampus",
+  "license": "GNU GPL V3",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "jest": "^26.0.1",
+    "passport": "^0.4.1",
+    "passport-github": "^1.1.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-oauth20": "^2.0.0"
+  }
+}
