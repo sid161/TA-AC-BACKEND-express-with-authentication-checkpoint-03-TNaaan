@@ -1,0 +1,25 @@
+<%- include partials/header %>
+
+  <main>
+    <section class="padding">
+      <div class="container flex center">
+        <h1>Add Income </h1>
+      </div>
+     
+    </section>
+    <section class="padding">
+      <div class="container flex center">
+          <form action="/income/new" method="POST">
+            <label for="source">Enter Source of income</label>
+            <input type="text" placeholder="Income source" name="source">
+            <label for="amount">Enter Amount </label>
+            <input type="number" placeholder="enter amount" name="amount">
+            <label for="date">Enter date</label>
+            <input type="date" placeholder="enter date" name="date">
+        <a href="#"> <button type="submit" class="btn">Add Income</button></a>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

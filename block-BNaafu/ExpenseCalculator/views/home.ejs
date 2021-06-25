@@ -1,0 +1,51 @@
+<% include partials/header %>
+<body>
+    <main>
+        <section class="padding">
+            <div class="container flex center">
+                <h1 class="heading-dashboard">Dashboard of <%= user.name %></h1>
+            </div>
+        </section>
+        <section class="padding">
+            <div class="container flex center">
+                <% if(user.balance>=0){ %>
+                    <h2 class="bal-text">Balance is <%= user.balance %> Rs</h2>
+               <% } %>
+               <% if(user.balance < 0){ %>
+                <h2>Balance is <%= user.balance %></h2>
+               <% } %>
+            </div>
+        </section>
+        <section class="padding">
+            <a href="/income/new" class="btn">Add Income</a>
+            <a href="/expense/new" class="btn">Add Expense</a>
+            <a href="/users/balance/all" class="btn">Balance</a>
+            <a href="/users/balance/dateFilter" class="btn">Filter by date</a>
+            <a href="/users/balance/byMonth" class="btn">Filter by month</a>
+        </section>
+        <section class="padding">
+        <div class="container flex center">
+            <div class="income-details">
+            <% income.forEach(inc => { %>
+                <h2 class="flex-between">Income Source <span><%= inc.source %></span></h2>
+                <h2 class="flex-between">Income Earned <span><%= inc.amount %></span></h2>
+                
+            <% }) %>
+            </div>
+        </div>
+        <div class="container gap flex center">
+            <div class="expense-details">
+            <% expense.forEach(exp => { %>
+                <h2 class="flex-between">expense Source <span><%= exp.source %></span></h2>
+                <h2 class="flex-between">expense Done<span><%= exp.amount %></span></h2>
+                
+            <% }) %>
+            </div>
+        </div>
+        
+        </div> 
+    </section>
+    </main>
+    
+</body>
+</html>
