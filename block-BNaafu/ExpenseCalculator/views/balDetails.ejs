@@ -1,0 +1,73 @@
+<%- include partials/header %>
+
+  <main>
+    <section class="padding">
+      <div class="container flex center">
+        <h1>Your Balance </h1>
+
+      </div>
+      </section>
+      <section class="padding">
+          <div class="container flex center">
+            <% if(user.balance >= 0) { %>
+                <h3>Your Balance is <%user.balance %></h3>
+           <% } %>
+           <% if(user.balance < 0) { %>
+            <h3>Your Balance is <%user.balance %></h3>
+          <% } %>
+
+          <% if(monthlyBal > 0){ %> 
+            <h3>Your monthly bal is<%= monthlyBal  %> </h3>
+            <% } %> 
+            <% if(monthlyBal<0){ %> 
+              <h3>Your monthly bal is<%= monthlyBal  %> </h3>
+                <% } %> 
+          </div>
+      </section>
+      <section class="adding">
+        <div class="container flex ">
+          
+          <div class="flex center" >
+            <a href="/users/balance/all" class="btn">Reset</a>
+          </div>
+  
+            <form action="/users/balance/dateFilter" method="POST">
+            <label for="from">From date</label>
+            <input type="date" name="from" id="from">    
+            <label for="to">To date</label>
+             <input type="date" name="to" id="to">
+            <a href="#"><button type="submit" class="btn">Submit</button></a> 
+            </form>
+
+            <div class="flex center">
+                <form action="/users/balance/byMonth" method="POST">
+                    <label type="date" name="month" id="month">Monthly</label>
+                  <input type="month" value="choose month" name="month">
+                  
+                  <a href="#"><button type="submit" class="btn">Submit</button></a> 
+                </form>
+              </div>
+                  </div>
+                </section>
+                <section class="padding">
+                    <div class="container flex center">
+                        <div>
+                            <% arrbal.forEach(ele => { %>
+                               <% if(ele.type === "expense"){ %>
+                                    <h4><%= ele.source %></h4>
+                                    <h4><%= ele.amount %></h4>
+                                    <a href="#" class="btn">More</a>
+                                <% } %>
+
+                                <% if(ele.type==="income"){ %> 
+                                        <h5><%= ele.source  %> </h5>
+                                        <h4><%= ele.amount %> </h4>
+                                        <a href="#" class="btn">More</a>
+                                    <% } %> 
+
+                            <% }) %>
+                        
+                        </div>
+                    </div>
+                </section>
+  
